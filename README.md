@@ -1,3 +1,6 @@
+# View in Browser
+https://guilherme-fumagali.github.io/year-progression-bar/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
