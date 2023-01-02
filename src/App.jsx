@@ -18,7 +18,7 @@ function App() {
     const endDate = new Date(currentDate.getFullYear() + 1, 0, 1)
     return (currentDate - startDate) / (endDate - startDate) * 100;
   }
-  
+
   const currentDate = new Date()
   const percentCompleted = getPercentCompleted(currentDate);
 
@@ -28,10 +28,15 @@ function App() {
   }, [percentCompleted]);
 
   return (
-    <div>
-      <ProgressBarComponent percentCompleted={yearCompleted}/>
-      <p>{`${getDayOfYear(currentDate)}/${getDayOfYear(new Date(currentDate.getFullYear()))}`}</p>
-      <p>{`${yearCompleted.toFixed(6)}%`}</p>
+    <div id="all">
+      <p></p>
+      <div id='wrap'>
+        <h1 id='title'>{currentDate.getFullYear()} Progress</h1>
+        <ProgressBarComponent percentCompleted={percentCompleted}/>
+        <p id='percent'>{`${yearCompleted.toFixed(6)}%`}</p>
+        <p id='days'>{`${getDayOfYear(currentDate)}/${getDayOfYear(new Date(currentDate.getFullYear()))} days`}</p>
+      </div>
+      <p></p>
     </div>
     );
 }
