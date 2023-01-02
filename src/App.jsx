@@ -13,11 +13,14 @@ function App() {
     return day;
   }    
 
+  const getPercentCompleted = (currentDate) => {
+    const startDate = new Date(currentDate.getFullYear(), 0, 1)
+    const endDate = new Date(currentDate.getFullYear() + 1, 0, 1)
+    return (currentDate - startDate) / (endDate - startDate) * 100;
+  }
+  
   const currentDate = new Date()
-  const startDate = new Date(currentDate.getFullYear(), 0, 1)
-  const endDate = new Date(currentDate.getFullYear() + 1, 0, 1)
-
-  const percentCompleted = (currentDate - startDate) / (endDate - startDate) * 100;
+  const percentCompleted = getPercentCompleted(currentDate);
 
   React.useEffect(() => {
     const interval = setInterval(() => setYearCompleted(percentCompleted), 50);
